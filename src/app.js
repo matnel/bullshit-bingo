@@ -26,7 +26,9 @@ var init = function() {
 	});
 }
 
-init();
+$().ready(function () {
+    init();
+});
 
 var display = function(words, foundWords) {
 
@@ -54,11 +56,21 @@ var display = function(words, foundWords) {
     chrome.storage.local.set( { 'foundWords' : foundWords } );
 
     $('body').prepend( container );
-
+	
     var button = $('<div>', { id: 'bs-button', html: 'BS Bingo™ (' + found + ')'} );
+	
+	var mursu = $(window).width();
+	var bsposition = mursu - 50;
+	button.css('position', 'fixed');
+	button.css('top', '0px');
+	button.css('left', bsposition);
 	$('body').prepend( button );
 
+	bsposition = mursu - 100;
 	var new_game = $('<div>', { id: 'bs-button', html: 'New Game'}  );
+	new_game.css('position', 'fixed');
+	new_game.css('top', '0px');
+	new_game.css('left', bsposition);
 	$('body').prepend( new_game );
 
     button.on('click', function() {
