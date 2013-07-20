@@ -1,12 +1,12 @@
 .box {
-	width:100px;
-	height:100px;
-	background:white;
-	color: #FFCCCC;
+	width:90px;
+	height:90px;
 	float: left;
 	border-style:solid;
 	border-width:2px;
 	padding: 5px;
+	font-family: comic sans;
+	background:#FFCCCC;
 }
 
 #container {
@@ -14,5 +14,7 @@
 	height:312px;
 }
 .found {
-	color:#FF1919;
+	background:#FF1919;
+	color: white;
+	border-color:black;
 }

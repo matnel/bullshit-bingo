@@ -1,5 +1,4 @@
 $().ready( function() {
-	alert("Kissat <3");
 
 	// '<div style="width:100px;height:100px;background:blue;">Kissa</div>'
 
