@@ -33,7 +33,7 @@ var display = function(words, foundWords) {
 	var text = $('body').text();
 	text = text.toLowerCase();
 
-	var container = $('<div>', { id: 'bs-container'} );
+	var container = $('<div>', { id: 'bs-container', style : 'display: none;'} );
 
 	for(var i=0;i<9;i++){
 		var d = $('<div>', { class: 'bs-box', html : words[i] } ) ;
@@ -50,5 +50,12 @@ var display = function(words, foundWords) {
     chrome.storage.local.set( { 'foundWords' : foundWords } );
 
     $('body').prepend( container );
+
+    var button = $('<div>', { id: 'bs-button', html: 'BS Bingo™'} );
+	$('body').prepend( button );
+
+    button.on('click', function() {
+    	container.slideToggle();
+    });
 
 }
