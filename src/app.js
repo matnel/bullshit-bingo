@@ -58,7 +58,7 @@ var display = function(words, foundWords) {
     var button = $('<div>', { id: 'bs-button', html: 'BS Bingo™ (' + found + ')'} );
 	$('body').prepend( button );
 
-	var new_game = $('<div>', { id: 'bs-button', html: 'new game'}  );
+	var new_game = $('<div>', { id: 'bs-button', html: 'New Game'}  );
 	$('body').prepend( new_game );
 
     button.on('click', function() {
