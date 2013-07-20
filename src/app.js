@@ -19,8 +19,6 @@ var init = function() {
 			foundWords = result.foundWords;
 		}
 
-
-		console.log('??????????');
 		console.log( foundWords );
 		display( words, foundWords );
 	});
