@@ -34,13 +34,19 @@ var display = function(words, foundWords) {
 	text = text.toLowerCase();
 
 	var container = $('<div>', { id: 'bs-container', style : 'display: none;'} );
+	var found = 0;
 
 	for(var i=0;i<9;i++){
 		var d = $('<div>', { class: 'bs-box', html : words[i] } ) ;
 
 		if( text.indexOf(words[i]) >0 || foundWords.indexOf(words[i])!= -1 ){
 			d.addClass('bs-found');
-			foundWords.push(words[i]);
+
+			// haz found previously?
+			if( foundWords.indexOf(words[i]) == -1 ) {
+                found++;
+				foundWords.push(words[i]);
+			}
 		}
 	    container.append( d );        
     }
@@ -51,8 +57,11 @@ var display = function(words, foundWords) {
 
     $('body').prepend( container );
 
-    var button = $('<div>', { id: 'bs-button', html: 'BS Bingo™'} );
+    var button = $('<div>', { id: 'bs-button', html: 'BS Bingo™ (' + found + ')'} );
 	$('body').prepend( button );
+
+	var new_game = $('<div>', { id: 'bs-button', html: 'new game'} );
+	$('body').prepend( new_game );
 
     button.on('click', function() {
     	container.slideToggle();
