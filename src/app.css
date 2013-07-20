@@ -6,7 +6,7 @@
 	border-width:2px;
 	padding: 5px;
 	font-family: "Comic Sans MS", cursive, sans-serif;
-	background:#FFCCCC;
+	background:#FFF0F0;
 }
 
 #bs-container {
@@ -15,7 +15,7 @@
 	position:absolute;
 	top:0px;
     left:0px;
-    z-index: 5;
+    z-index: 1000000;
 }
 
 .bs-found {
@@ -28,4 +28,8 @@
 	float:right;
 	border-style:solid;
 	border-width:1px;
+	background:#FFF0F0;
+	border-radius:5px;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	
 }
