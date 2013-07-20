@@ -58,11 +58,19 @@ var display = function(words, foundWords) {
     var button = $('<div>', { id: 'bs-button', html: 'BS Bingo™ (' + found + ')'} );
 	$('body').prepend( button );
 
-	var new_game = $('<div>', { id: 'bs-button', html: 'new game'} );
+	var new_game = $('<div>', { id: 'bs-button', html: 'new game'}  );
 	$('body').prepend( new_game );
 
     button.on('click', function() {
     	container.slideToggle();
     });
+	
+	new_game.on('click', function(){
+	     words = _.shuffle( words );
+         chrome.storage.local.set( { 'words' : words } );
+		 foundWords = [];
+		 chrome.storage.local.set({'foundWords': foundWords});
+		 location.reload();
+	}
 
 }
