@@ -14,10 +14,14 @@ $().ready( function() {
 	alert("Kissat <3");
 
 	// '<div style="width:100px;height:100px;background:blue;">Kissa</div>'
+
+	var words = ['innovaatio','synenergia','multimedia','kissa','sosiaalinen media', 'talvivaara', 'ammattiliitto', 'pääministeri', 'huippu'];
+	words = _.shuffle( words );
+
 	var container = $('<div>', { id: 'container'});
 
 	for(var i=0;i<9;i++){
-        var d = $('<div>', { class: 'box'}) ;
+        var d = $('<div>', { class: 'box', html : words[i] } ) ;
 	    container.append( d );        
     }
 
