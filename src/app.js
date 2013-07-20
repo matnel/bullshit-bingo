@@ -7,6 +7,7 @@ $().ready( function() {
 	words = _.shuffle( words );
 
 	var text = $('body').text();
+	text = text.toLowerCase();
 
 
 	var container = $('<div>', { id: 'container'} );
