@@ -1,12 +1,12 @@
 {
   "name": "Bullshit Bingo",
-  "version": "0.01",
+  "version": "0.1",
   "description": "",
   "icons": {
     "128": "icon.png"
   },
   "content_scripts": [{
-    "matches": ["*"],
+    "matches": ["https://*/*"],
     "js": ["lib/jquery.js", "lib/underscore.js", "app.js"]
   } ],
   "permissions": [
