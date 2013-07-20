@@ -1,7 +1,8 @@
 .box {
 	width:100px;
 	height:100px;
-	background:blue;
+	background:white;
+	color: #FFCCCC;
 	float: left;
 	border-style:solid;
 	border-width:2px;
