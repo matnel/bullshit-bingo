@@ -66,11 +66,8 @@ var display = function(words, foundWords) {
     });
 	
 	new_game.on('click', function(){
-	     words = _.shuffle( words );
-         chrome.storage.local.set( { 'words' : words } );
-		 foundWords = [];
-		 chrome.storage.local.set({'foundWords': foundWords});
+         chrome.storage.local.remove(  'words' );
 		 location.reload();
-	}
+	});
 
 }
