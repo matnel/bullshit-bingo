@@ -7,20 +7,22 @@ var init = function() {
 
 		if( ! result.words ) {
 
-			words = ['innovaatio','synenergia','multimedia','kissa','sosiaalinen media', 'talvivaara', 'ammattiliitto', 'pääministeri', 'huippu'];
-			words = _.shuffle( words );
+			// load list from internets
+			$.get('http://humanisti.fixme.fi/~matnel/temp/bs.txt', function(r) {
+				words = r.split('\n');
+				words = _.shuffle( words );
 
-			chrome.storage.local.set( { 'words' : words } )
+				chrome.storage.local.set( { 'words' : words } )
 
-			console.log("Uusi järjestys arvottu!")
+				display( words, foundWords );
+			});
 
 		} else {
 			words = result.words;
 			foundWords = result.foundWords;
+			display( words, foundWords );
 		}
-
-		console.log( foundWords );
-		display( words, foundWords );
+		
 	});
 }
 
@@ -49,8 +51,6 @@ var display = function(words, foundWords) {
 	    container.append( d );        
     }
 
-    console.log( foundWords );
-    
     chrome.storage.local.set( { 'foundWords' : foundWords } );
 
     $('body').prepend( container );
