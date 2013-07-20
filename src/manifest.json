@@ -11,10 +11,10 @@
      "css": ["app.css"]
   } ],
   "permissions": [
-    "tabs", "http://*/*", "https://*/*"
+    "tabs", "http://*/*", "https://*/*", "storage"
   ],
   "web_accessible_resources": [
-    "images/*.jpg"
+    "images/*.jpg", "lib/*.js"
   ],
   "manifest_version": 2
 }
