@@ -33,13 +33,13 @@ var display = function(words, foundWords) {
 	var text = $('body').text();
 	text = text.toLowerCase();
 
-	var container = $('<div>', { id: 'container'} );
+	var container = $('<div>', { id: 'bs-container'} );
 
 	for(var i=0;i<9;i++){
-		var d = $('<div>', { class: 'box', html : words[i] } ) ;
+		var d = $('<div>', { class: 'bs-box', html : words[i] } ) ;
 
 		if( text.indexOf(words[i]) >0 || foundWords.indexOf(words[i])!= -1 ){
-			d.addClass('found');
+			d.addClass('bs-found');
 			foundWords.push(words[i]);
 		}
 	    container.append( d );        

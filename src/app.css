@@ -1,4 +1,4 @@
-.box {
+.bs-box {
 	width:90px;
 	height:90px;
 	float: left;
@@ -9,11 +9,12 @@
 	background:#FFCCCC;
 }
 
-#container {
+#bs-container {
 	width:312px;
 	height:312px;
 }
-.found {
+
+.bs-found {
 	background:#FF1919;
 	color: white;
 	border-color:black;
