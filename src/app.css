@@ -2,9 +2,11 @@
 	width:100px;
 	height:100px;
 	background:blue;
+	color: white;
 	float: left;
 	border-style:solid;
 	border-width:2px;
+	border-color: white;
 }
 
 #container {
@@ -12,5 +14,6 @@
 	height:312px;
 }
 .found {
-	background:pink;
+	background:white;
+	color: blue;
 }
