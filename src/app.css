@@ -12,10 +12,20 @@
 #bs-container {
 	width:312px;
 	height:312px;
+	position:absolute;
+	top:0px;
+    left:0px;
+    z-index: 5;
 }
 
 .bs-found {
 	background:#FF1919;
 	color: white;
 	border-color:black;
+}
+
+#bs-button{
+	float:right;
+	border-style:solid;
+	border-width:1px;
 }
