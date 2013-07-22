@@ -61,54 +61,36 @@ var display = function(words, foundWords) {
 	
 	$('body').prepend( container );
 
-	var menu = $('<div>', { id : 'bs-menu' } );
+	var menu = $('<div>', { id : 'bs-menu', html : 'BS Bingo™' } );
 	$('body').prepend( menu );
-	
+
 	// display toggle button
-    var button = $('<button>', { id: 'bs-button', class:'btn btn-info', html: 'BS Bingo™ (' + found + ')', type:"button"} );
+    var button = $('<div>', { class : 'bs-button btn btn-success', html: 'Show grid' } );
 	menu.prepend( button );
 
 	button.on('click', function() {
     	container.slideToggle();
+    	$('.settings').slideToggle();
     });
 
-	var settingsB = $('<div>', { id: 'bs-button', class:'btn btn-info', html: 'Settings'}  );
-	menu.prepend( settingsB );
+	// style is a hack
+	var newGame = $('<div>', { style: 'display: none;', class: 'settings bs-button btn btn-info', html: 'New Game'}  );
+	menu.append( newGame );
 
-	var settingsContent = $('<div>', { id: 'sContent', html: '', style:'display:none;'}  );
-	settingsContent.css('position', 'fixed');
-	settingsContent.css('top', '30px');
-	var ikkuna = $(window).width();
-	var sPosition = ikkuna - 220;
-	settingsContent.css('left', sPosition);
-
-	menu.prepend( settingsContent );
-
-	var new_game = $('<div>', { id: 'bs-button', class:'btn btn-info', html: 'New Game'}  );
-	new_game.css('float', 'left');
-	new_game.on('click', function(){
+	newGame.on('click', function(){
          chrome.storage.local.remove(  'words' );
 		 location.reload();
 	});
 	
-	menu.append( new_game );
 	
+	var urlInput = $('<input>', { placeholder : 'Content URL', class : 'settings bs-button'} );
+	menu.append( urlInput );
 	
-	settingsB.on('click', function(){
-         settingsContent.slideToggle();
-	});
+	urlInput.on('change', function(){
+         var url = $(this).val();
 	
-	var inputEka = $('<input>', { id: 'input1', html: ' '} );
-	var submitButton =  $('<div>', { id: 'bs-button', class:'btn btn-info', html:' submit', style: 'width:50px;heigth:50px;'} );
-	submitButton.css('float', 'left');
-
-	settingsContent.append( inputEka );
-	settingsContent.append( submitButton );
-	
-	submitButton.on('click', function(){
-         var mursuOsoite = $('#input1').val();
-	
-	     $.get(mursuOsoite, function(r) {
+	     $.get( url , function(r) {
+	     	// todo: validate content
 				words = r.split('\n');
 				words = _.shuffle( words );
 				

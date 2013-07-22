@@ -25,6 +25,7 @@
     z-index: 1000000;
 	background: green;
 	border-radius:5px;
+	float: right;
 }
 
 #bs-menu {
@@ -33,19 +34,14 @@
 	left: 0px;
 	width: 100%;
 	z-index: 1000000;
-}
-
-#sContent{
-    width:160px;
-	height:150px;
-	background:pink;
-    z-index:1000000;
-	border-radius:5px;
-}
-
-#bs-button{
-	margin-left: 5px;
-	float:right;
 	font-family: "Comic Sans MS", cursive, sans-serif;
-/*	z-index: 1000000; */
+}
+
+.settings {
+	display: none;
+}
+
+.bs-button{
+	margin-right: 5px;
+	float:right;
 }
