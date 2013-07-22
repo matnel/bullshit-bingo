@@ -60,30 +60,30 @@ var display = function(words, foundWords) {
     chrome.storage.local.set( { 'foundWords' : foundWords } );
 	
 	$('body').prepend( container );
+
+	var menu = $('<div>', { id : 'bs-menu' } );
+	$('body').prepend( menu );
 	
+	// display toggle button
     var button = $('<button>', { id: 'bs-button', class:'btn btn-info', html: 'BS Bingo™ (' + found + ')', type:"button"} );
-	
-	var mursu = $(window).width();
-	var bsposition = mursu - 50;
-	button.css('position', 'fixed');
-	button.css('top', '0px');
-	button.css('left', bsposition); 
-	$('body').prepend( button );
+	menu.prepend( button );
 
-	bsposition = mursu - 230;
-	var settingsB = $('<div>', { id: 'bs-button', class:'btn btn-info', html: 'Settings'}  );
-	settingsB.css('width', '160');
-	settingsB.css('position', 'fixed');
-	settingsB.css('top', '0px');
-	settingsB.css('left', bsposition);
-	$('body').prepend( settingsB );
-
-    button.on('click', function() {
+	button.on('click', function() {
     	container.slideToggle();
     });
-	
-	
-	
+
+	var settingsB = $('<div>', { id: 'bs-button', class:'btn btn-info', html: 'Settings'}  );
+	menu.prepend( settingsB );
+
+	var settingsContent = $('<div>', { id: 'sContent', html: '', style:'display:none;'}  );
+	settingsContent.css('position', 'fixed');
+	settingsContent.css('top', '30px');
+	var ikkuna = $(window).width();
+	var sPosition = ikkuna - 220;
+	settingsContent.css('left', sPosition);
+
+	menu.prepend( settingsContent );
+
 	var new_game = $('<div>', { id: 'bs-button', class:'btn btn-info', html: 'New Game'}  );
 	new_game.css('float', 'left');
 	new_game.on('click', function(){
@@ -91,15 +91,8 @@ var display = function(words, foundWords) {
 		 location.reload();
 	});
 	
-	var settingsContent = $('<div>', { id: 'sContent', html: '   ', style:'display:none;'}  );
-	settingsContent.css('position', 'fixed');
-	settingsContent.css('top', '30px');
-	var ikkuna = $(window).width();
-	var sPosition = ikkuna - 220;
-	settingsContent.css('left', sPosition);
+	menu.append( new_game );
 	
-	settingsContent.append( new_game );
-	$('body').prepend( settingsContent );
 	
 	settingsB.on('click', function(){
          settingsContent.slideToggle();

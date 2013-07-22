@@ -27,6 +27,13 @@
 	border-radius:5px;
 }
 
+#bs-menu {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+}
+
 #sContent{
     width:160px;
 	height:150px;
