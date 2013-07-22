@@ -7,6 +7,7 @@
 	padding: 5px;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 	background:#F0F8FF;
+	border-radius:5px;
 }
 
 #bs-container {
@@ -16,6 +17,16 @@
 	top:0px;
     left:0px;
     z-index: 1000000;
+	background: green;
+	border-radius:5px;
+}
+
+#sContent{
+    width:160px;
+	height:150px;
+	background:pink;
+    z-index:1000000;
+	border-radius:5px;
 }
 
 .bs-found {
@@ -25,12 +36,8 @@
 }
 
 #bs-button{
-	width:50px;
+	margin-left: 5px;
 	float:right;
-	border-style:solid;
-	border-width:1px;
-	background:#F0F8FF;
-	border-radius:5px;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 	z-index: 1000000;
 }

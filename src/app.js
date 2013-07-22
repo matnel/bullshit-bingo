@@ -3,12 +3,13 @@ var init = function() {
 	chrome.storage.local.get(['words', 'foundWords'], function( result ){
 
 		var words = [];
-		var foundWords = [];		
+		var foundWords = [];
 
 		if( ! result.words ) {
-
-			// load list from internets
-			$.get('http://humanisti.fixme.fi/~matnel/temp/bs.txt', function(r) {
+		
+            // load list from internets
+			
+			$.get( 'http://humanisti.fixme.fi/~matnel/temp/bs.txt' , function(r) {
 				words = r.split('\n');
 				words = _.shuffle( words );
 
@@ -37,8 +38,11 @@ var display = function(words, foundWords) {
 
 	var container = $('<div>', { id: 'bs-container', style : 'display: none;'} );
 	var found = 0;
+	
+
 
 	for(var i=0;i<9;i++){
+	console.log( words[i] );
 		var d = $('<div>', { class: 'bs-box', html : words[i] } ) ;
 
 		if( text.indexOf(words[i]) >0 || foundWords.indexOf(words[i])!= -1 ){
@@ -52,12 +56,12 @@ var display = function(words, foundWords) {
 		}
 	    container.append( d );        
     }
-
-    chrome.storage.local.set( { 'foundWords' : foundWords } );
-
-    $('body').prepend( container );
 	
-    var button = $('<div>', { id: 'bs-button', html: 'BS Bingo™ (' + found + ')'} );
+    chrome.storage.local.set( { 'foundWords' : foundWords } );
+	
+	$('body').prepend( container );
+	
+    var button = $('<div>', { id: 'bs-button', class:'btn btn-info', html: 'BS Bingo™ (' + found + ')'} );
 	
 	var mursu = $(window).width();
 	var bsposition = mursu - 50;
@@ -66,20 +70,59 @@ var display = function(words, foundWords) {
 	button.css('left', bsposition);
 	$('body').prepend( button );
 
-	bsposition = mursu - 100;
-	var new_game = $('<div>', { id: 'bs-button', html: 'New Game'}  );
-	new_game.css('position', 'fixed');
-	new_game.css('top', '0px');
-	new_game.css('left', bsposition);
-	$('body').prepend( new_game );
+	bsposition = mursu - 230;
+	var settingsB = $('<div>', { id: 'bs-button', class:'btn btn-info', html: 'Settings'}  );
+	settingsB.css('width', '160');
+	settingsB.css('position', 'fixed');
+	settingsB.css('top', '0px');
+	settingsB.css('left', bsposition);
+	$('body').prepend( settingsB );
 
     button.on('click', function() {
     	container.slideToggle();
     });
 	
+	
+	
+	var new_game = $('<div>', { id: 'bs-button', class:'btn btn-info', html: 'New Game'}  );
+	new_game.css('float', 'left');
 	new_game.on('click', function(){
          chrome.storage.local.remove(  'words' );
 		 location.reload();
+	});
+	
+	var settingsContent = $('<div>', { id: 'sContent', html: '   ', style:'display:none;'}  );
+	settingsContent.css('position', 'fixed');
+	settingsContent.css('top', '20px');
+	var ikkuna = $(window).width();
+	var sPosition = ikkuna - 230;
+	settingsContent.css('left', sPosition);
+	
+	settingsContent.append( new_game );
+	$('body').prepend( settingsContent );
+	
+	settingsB.on('click', function(){
+         settingsContent.slideToggle();
+	});
+	
+	var inputEka = $('<input>', { id: 'input1', html: ' '} );
+	var submitButton =  $('<div>', { id: 'bs-button', html:' submit', style: 'width:50px;heigth:50px;'} );
+	submitButton.css('float', 'left');
+
+	settingsContent.append( inputEka );
+	settingsContent.append( submitButton );
+	
+	submitButton.on('click', function(){
+         var mursuOsoite = $('#input1').val();
+	
+	     $.get(mursuOsoite, function(r) {
+				words = r.split('\n');
+				words = _.shuffle( words );
+				
+				chrome.storage.local.set( { 'words' : words } );
+				
+				location.reload();
+	    });
 	});
 
 }
