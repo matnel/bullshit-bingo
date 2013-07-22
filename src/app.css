@@ -10,6 +10,12 @@
 	border-radius:5px;
 }
 
+.bs-found {
+	background:#FF1919;
+	color: white;
+	border-color:black;
+}
+
 #bs-container {
 	width:312px;
 	height:312px;
@@ -29,15 +35,9 @@
 	border-radius:5px;
 }
 
-.bs-found {
-	background:#FF1919;
-	color: white;
-	border-color:black;
-}
-
 #bs-button{
 	margin-left: 5px;
 	float:right;
 	font-family: "Comic Sans MS", cursive, sans-serif;
-	z-index: 1000000;
+/*	z-index: 1000000; */
 }

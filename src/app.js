@@ -61,13 +61,13 @@ var display = function(words, foundWords) {
 	
 	$('body').prepend( container );
 	
-    var button = $('<div>', { id: 'bs-button', class:'btn btn-info', html: 'BS Bingo™ (' + found + ')'} );
+    var button = $('<button>', { id: 'bs-button', class:'btn btn-info', html: 'BS Bingo™ (' + found + ')', type:"button"} );
 	
 	var mursu = $(window).width();
 	var bsposition = mursu - 50;
 	button.css('position', 'fixed');
 	button.css('top', '0px');
-	button.css('left', bsposition);
+	button.css('left', bsposition); 
 	$('body').prepend( button );
 
 	bsposition = mursu - 230;
@@ -93,9 +93,9 @@ var display = function(words, foundWords) {
 	
 	var settingsContent = $('<div>', { id: 'sContent', html: '   ', style:'display:none;'}  );
 	settingsContent.css('position', 'fixed');
-	settingsContent.css('top', '20px');
+	settingsContent.css('top', '30px');
 	var ikkuna = $(window).width();
-	var sPosition = ikkuna - 230;
+	var sPosition = ikkuna - 220;
 	settingsContent.css('left', sPosition);
 	
 	settingsContent.append( new_game );
@@ -106,7 +106,7 @@ var display = function(words, foundWords) {
 	});
 	
 	var inputEka = $('<input>', { id: 'input1', html: ' '} );
-	var submitButton =  $('<div>', { id: 'bs-button', html:' submit', style: 'width:50px;heigth:50px;'} );
+	var submitButton =  $('<div>', { id: 'bs-button', class:'btn btn-info', html:' submit', style: 'width:50px;heigth:50px;'} );
 	submitButton.css('float', 'left');
 
 	settingsContent.append( inputEka );
