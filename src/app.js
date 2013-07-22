@@ -33,7 +33,7 @@ $().ready(function () {
 
 var display = function(words, foundWords) {
 
-	var text = $('body').text();
+	var text =  $('body').text();
 	text = text.toLowerCase();
 
 	var container = $('<div>', { id: 'bs-container', style : 'display: none;'} );
