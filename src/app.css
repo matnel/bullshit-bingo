@@ -44,3 +44,12 @@
 	margin-right: 5px;
 	float:right;
 }
+
+.bs-image{
+    width:130px;
+	height:130px;
+	position:absolute;
+	left: 0px;
+	transition: left 4s linear;
+    top:400px;
+}

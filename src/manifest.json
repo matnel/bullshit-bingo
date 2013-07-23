@@ -14,7 +14,7 @@
     "tabs", "http://*/*", "https://*/*", "storage"
   ],
   "web_accessible_resources": [
-    "images/*.jpg", "lib/*.js"
+    "images/*.jpg", "lib/*.js", "*.png"
   ],
   "manifest_version": 2
 }

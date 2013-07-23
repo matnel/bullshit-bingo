@@ -39,10 +39,10 @@ var display = function(words, foundWords) {
 	var container = $('<div>', { id: 'bs-container', style : 'display: none;'} );
 	var found = 0;
 	
+	console.log( words[i] );
 
 
 	for(var i=0;i<9;i++){
-	console.log( words[i] );
 		var d = $('<div>', { class: 'bs-box', html : words[i] } ) ;
 
 		if( text.indexOf(words[i]) >0 || foundWords.indexOf(words[i])!= -1 ){
@@ -56,6 +56,19 @@ var display = function(words, foundWords) {
 		}
 	    container.append( d );        
     }
+	
+	if( found > 0 ){
+	
+	    var angryCat = chrome.extension.getURL("tahti.png");
+	    var image = $('<img>', { class: 'bs-image', html : ' ' } ) ;
+		$('body').prepend( image );
+		
+		setTimeout( function() {
+		var ikkuna = $( window ).width();
+			image.attr('src', angryCat);
+			image.css( "left", ikkuna );
+		}, 2000 );
+	}
 	
     chrome.storage.local.set( { 'foundWords' : foundWords } );
 	
