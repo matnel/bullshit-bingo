@@ -59,6 +59,7 @@ var display = function(words, foundWords) {
 	
 	if( found > 0 ){
 	
+	    alert( found );
 	    var angryCat = chrome.extension.getURL("tahti.png");
 	    var image = $('<img>', { class: 'bs-image', html : ' ' } ) ;
 		$('body').prepend( image );
